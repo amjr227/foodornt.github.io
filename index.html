@@ -1,5 +1,5 @@
-<!doctype html>
 <html>
+	<!doctype html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,10 +14,269 @@
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
-		<div class="reveal">
+		<div class="reveal rtl">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-markdown id="face">
+					  <textarea data-template>
+						<img src="./drawing.svg" alt="رمز لاتكس" width='20%'/><br />
+						فن التنسيق الاحترافي
+					</textarea>
+				</section>
+				<section id="title">
+					<section>
+						<h2> إنشاء عنوان وتاريخ </h2>
+					</section>
+					<section>
+						لإضافة عنوان واسم المؤلف وتاريخ للمستند، نكتب هذه الأوامر:
+						<pre>
+							<code data-trim data-noescape>
+								\title{First Document} % العنوان
+								\author{Albattol} % المؤلف
+								\date{2021 Nov 06} % التاريخ
+							</code>
+						</pre>
+						يمكن إهمال أمر التاريخ لأن لاتكس سيقوم افتراضيا بطباعة تاريخ اليوم
+					</section>
+					<section>
+						الناتج:<br/>
+						<img src="./title.png"/>
+					</section>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+					## الخطوط وأحجامها وألوانها
+
+					-----
+
+					## شكل النص
+
+					<table>
+						<tbody>
+							<tr>
+									<td><code>\textbf{test}</code></td>
+									<td><b>test</b></td>
+							</tr>
+							<tr>
+									<td><code>\textit{test}</code></td>
+									<td><i style="font: revert;">test</i></td>
+							</tr>
+							<tr>
+									<td><code>\undeline{test}</code></td>
+									<td><u>test</u></td>
+							</tr>
+						</tbody>
+					</table>
+
+					-----
+
+					## أحجام الخط
+					متراوحة من الأصغر للأكبر
+					<table>
+						<tbody>
+							<tr>
+									<td><code>\tiny</code></td>
+							</tr>
+							<tr>
+									<td><code>\small</code></td>
+							</tr>
+							<tr>
+									<td><code>\large</code></td>
+							</tr>
+							<tr>
+									<td><code>\Large</code></td>
+							</tr>
+							<tr>
+									<td><code>\LARGE</code></td>
+							</tr>
+							<tr>
+									<td><code>\huge</code></td>
+							</tr>
+							<tr>
+									<td><code>\Huge</code></td>
+							</tr>
+						</tbody>
+					</table>
+					-----
+
+					## تلوين النص
+					<pre>
+						<code>\textcolor{color}{text}</code>
+					</pre>
+					حيث color هو لون النص وtext هو النص
+					<iframe src="./colorstable.html" width=100% seamless=seamless align=center style="overflow:hidden"></iframe>
+
+					-----
+
+					## أنماط الخطوط
+					لتغيير نمط الخط نختار إحدى الأوامر التالية الموضحة في الجدول.
+
+					<img src="./fonttypes.png" alt="أنواع الخطوط" />
+					</textarea>
+
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## ضبط الهوامش
+
+						لإنشاء مستند بحجم A4 مع منطقة نص بطول ٨ بوصات وعرض ٦ بوصات:
+
+						<pre><code class="language-latex" data-trim data-noescape>\usepackage[a4paper, total={6in, 8in}]{geometry}</code></pre>
+
+						لإضافة هوامش حول المستند حجمها بوصة:
+						<pre><code class="language-latex" data-trim data-noescape>\usepackage[margin=1.0in]{geometry}</code></pre>
+
+						لمزيد من التحكم في الهوامش:
+						<pre><code class="language-latex" data-trim data-noescape>\usepackage[top=1.0in, right=2in, left=3in, bottom=4in]{geometry}</code></pre>
+						هامش علوي ١ بوصة، هامش يمين ٢ بوصة، هامش يسار ٣ بوصة، هامش سفلي ٤ بوصة
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>	
+						## الفراغات
+
+						-----
+						
+
+						### الفراغات بين السطور:
+						لتكبير المسافة بين السطر والسطر، نضيف التعليمة التالية للديباجة:
+
+						<pre><code class="language-latex">\linespread{factor}</code></pre>
+
+						فمثلًا: نحدد حجم المسافة، لترك فراغ بمقدار سطر ونصف:
+						<pre><code class="language-latex">\linespread{1.6}</code></pre>
+
+						-----
+						### الفراغات الأفقية:
+						
+						لإضافة مسافة محددة بوحدة قياس، نستخدم:
+						<pre><code class="language-latex">\hspace{length}</code></pre>
+						حيث length هي مقدار المسافة، فمثلًا، لترك مسافة حجمها ٥ سنتيمتر:
+						<pre><code class="language-latex">\hspace{5cm}</code></pre>
+						لإضافة مسافة في بداية الفقرة، نضيف نجمة بعد الأمر كما يلي:
+						<pre><code class="language-latex">\hspace*{5cm}</code></pre>
+
+						-----
+						### الفراغات الرأسية:
+						لوضع مسافة 3 نقاط بين موضع وموضع:
+
+						<pre><code class="language-latex">\vspace{3pt}</code></pre>
+
+						لإضافة مسافة 10 سنتيمتر بداية الصفحة، لا ننسى إضافة النجمة:
+						<pre><code class="language-latex">\vspace*{3pt}</code></pre>
+
+						لتحديد مسافة بين سطرين معينين، نكتب:
+						<pre><code class="language-latex">\\[length]</code></pre>
+
+					</textarea>		
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## تعليمات المسافات الافتراضية
+						في نظام لاتكس، كل مسافة محددة بمقدار معين، فمثلًا، هناك قيمة افتراضية للمسافة بين السطور وبين العمود والآخر في الجدول وبين الصف والآخر وهناك قيم افتراضية لطول وعرض الصفحة، وهنا قائمة ببعض بهذه المسافات:
+
+						-----
+
+						<table>
+							<thead>
+								<tr>
+									<th>التعليمة</th>
+									<th>الاستخدام</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><pre><code class="language-latex">\baselineskip</code></pre></td>
+									<td>المسافة بين السطور</td>
+								</tr>
+								<tr>
+									<td><pre><code class="language-latex">\baselinestretch</code></pre></td>
+									<td>مضاعفة المسافة بين السطور التي تعطيها التعليمة السابقة</td>
+								</tr>
+								<tr>
+									<td><pre><code class="language-latex">\columnsep</code></pre></td>
+									<td>المسافة بين الأعمدة</td>
+								</tr>
+								<tr>
+									<td><pre><code class="language-latex">columnwidth</code></pre></td>
+									<td>عرض العمود</td>
+								</tr>
+								<tr>
+									<td><pre><code class="language-latex">\linewidth</code></pre></td>
+									<td>عرض السطر في بيئة معزولة</td>
+								</tr>
+								<tr>
+									<td><pre><code class="language-latex">\evensidemargin, \oddsidemargin</code></pre></td>
+									<td style="font-size: 18px !important;">هامش الصفحات في الكتاب في الصفحات الزوجية والفردية (على التوالي)</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## ترقيم الصفحات
+						لترقيم الصفحات، هناك أنماط، منها:
+						<table>
+							<tr>
+								<td>arabic</td>
+								<td>ترقيم عربي</td>
+							</tr>
+							<tr>
+								<td>roman</td>
+								<td>رومانية صغيرة</td>
+							</tr>
+							<tr>
+								<td>Roman</td>
+								<td>رومانية كبيرة</td>
+							</tr>
+							<tr>
+								<td>alph</td>
+								<td>حروف إنجليزية صغيرة</td>
+							</tr>
+							<tr>
+								<td>Alph</td>
+								<td>حروف إنجليزية كبيرة</td>
+							</tr>
+						</table>
+
+						ملاحظة: الأرقام العربية هي هذه (1, 2, 3) وليست هذه: (١،٢،٣) لأن الأخيرة إنما هي هندية.
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## التعداد الرقمي والنقطي
+
+						-----
+					</textarea>
+				</section>
+				<section>
+					إنشاء الجداول
+				</section>
+				<section>
+					إنشاء صور
+				</section>
+				<section>
+					الحروف الإغريقية
+				</section>
+				<section>
+					إضافة النصوص للمعادلات
+				</section>
+				<section>
+					تنسيق المعادلات
+				</section>
+				<section>
+					تلوين المعادلات
+				</section>
+				<section>
+					علامة الموجب والسالب
+				</section>
+				<section>
+					قائم ةالهياكل
+				</section>
+				<section>
+					بكيجات تنسيقية إضافية
+				</section>
 			</div>
 		</div>
 

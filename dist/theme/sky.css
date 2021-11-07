@@ -119,12 +119,21 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   text-shadow: var(--r-heading1-text-shadow);
 }
 
+.reveal table {
+  color: white;
+}
+
+td {
+  border: 4px solid white !important;
+}
+
 /*********************************************
  * OTHER
  *********************************************/
 .reveal p {
   margin: var(--r-block-margin) 0;
   line-height: 1.3;
+  direction: rtl;
 }
 
 /* Remove trailing margins after titles */
@@ -217,7 +226,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal pre {
   display: block;
   position: relative;
-  width: 90%;
   margin: var(--r-block-margin) auto;
   text-align: left;
   font-size: 0.55em;
@@ -365,4 +373,32 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   .backgrounds {
     background-color: var(--r-background-color);
   }
+}
+iframe::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  direction: ltr !important;
+}
+
+table th {
+  border: 2px solid white;
+  border-color: white !important;
+}
+
+.reveal.reveal img {
+  border: none;
+  box-shadow: none;
+  max-height: 66vh;
+  max-width: 66vw;
+}
+
+h3 {
+  direction: rtl !important;
+}
+
+th {
+  direction: rtl !important;
+  text-align: center !important;
 }

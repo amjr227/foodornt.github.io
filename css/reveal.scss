@@ -6,12 +6,18 @@
  * Copyright (C) Hakim El Hattab, https://hakim.se
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
 @import 'layout';
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 
+:root {
+	  --r-code-font: "Roboto Mono";
+		--r-heading-font: Amiri;
+}
 html.reveal-full-page {
 	width: 100%;
 	height: 100%;
@@ -1381,8 +1387,13 @@ $controlsArrowAngleActive: 36deg;
 .reveal.rtl .slides h5,
 .reveal.rtl .slides h6 {
 	direction: rtl;
-	font-family: sans-serif;
+	font-family: Amiri, sans-serif;
 }
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: Amiri, sans-serif;
+}
+
 
 .reveal.rtl pre,
 .reveal.rtl code {
@@ -1819,3 +1830,16 @@ $notesWidthPercent: 25%;
 @import 'print/pdf.scss';
 @import 'print/paper.scss';
 
+
+
+//section > :not(section) {
+//	direction:ltr;
+//}
+//section {
+//	font-family: Amiri;
+//	direction: rtl;
+//}
+#face {
+	font-family: Rakkas, Amiri;
+	direction: rtl;
+}
