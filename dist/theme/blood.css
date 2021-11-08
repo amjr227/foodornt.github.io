@@ -398,6 +398,10 @@ th {
   text-align: center !important;
 }
 
+.smallfont td {
+  font-size: 36px !important;
+}
+
 .reveal p {
   font-weight: 300;
   text-shadow: 1px 1px #222;

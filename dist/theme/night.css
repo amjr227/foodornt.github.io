@@ -392,3 +392,7 @@ th {
   direction: rtl !important;
   text-align: center !important;
 }
+
+.smallfont td {
+  font-size: 36px !important;
+}

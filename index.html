@@ -245,37 +245,293 @@
 				</section>
 				<section data-markdown data-separator-vertical="^-----">
 					<textarea data-template>
+						## لون الصفحة
+
+						لتغيير لون الصفحة، نحتاج لاستخدام حزمة pagecolor وإضافة الأمر التالي في الديباجة:
+						<pre><code class="language-latex" data-trim data-noescape>
+							\usepackage{pagecolor}
+							\pagecolor{yellow} %صفحة صفراء
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## الاقتباس
+						لعمل الاقتباسات، يفضل استخدام حزمة dirtytalk كما يلي:
+						```latex 
+						\usepackage{dirtytalk}
+							...
+						\begin{document}
+							\say{Quote} % الاقتباس
+						\end{document}
+						```
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
 						## التعداد الرقمي والنقطي
+						أشهر أنواع التعداد في لاتكس:
+						1. enumerate 
+						2. itemize
+						3. description
+
+						يفضل استخدام حزمة enumitem لمزيد من التحكم
+						-----
+						### التعداد الرقمي
+						```latex 
+						\begin{enumerate}
+							\item First % 1. First
+							\item Second % 2. Second
+						\end{enumerate}
+						```
+						-----
+						### التعداد النقطي
+						```latex 
+						\begin{itemize}
+							\item First % * First
+							\item Second % * Second
+						\end{itemize}
+						```
+						-----
+						### التعداد الأفقي
+							نستخدم نفس البيئة ولكن نضيف نجمة كما يلي:
+						```latex 
+						\begin{enumerate}
+							\item First 
+							\item Second
+							% 1. First 2. Second
+						\end{enumerate}
+						```
+						
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## إنشاء الجداول
+						تعد الجداول من أكثر المزايا شيوعا في الكتابات الأكاديمية ، وغالبا ما تستعمل لتلخيص نتائج
+						البحث . وعندما كان عمل الأوراق بجودة عالية ضرورة كان احتراف فن بناء الجداول مهما
+						لإنشاء مستندات جميلة . وبالممارسة والتكرار يمكن ألي شخص أن ينسق جداول بمظهر أنيق .
+						لاتكس يدعم الجداول بدون إدراج أي حزم إضافية ، حيث أنه يقدم البيئتان tabular و table
+						-----
+						مثال على استخدام البيئة tabular:
+						```latex 
+						\begin{tabular}{ l | c | r }
+							\hline			
+							1 & 2 & 3 \\
+							4 & 5 & 6 \\
+							7 & 8 & 9 \\
+							\hline  
+						\end{tabular}
+						```
+						الناتج:
+						<div style="background:white; display:inline-block;">
+							<img src="./tabular.png" alt=""/>
+						</div>
 
 						-----
+
+						```latex 
+						\begin{tabular}{ r|c|c| }
+						\multicolumn{1}{r}{}
+						 &  \multicolumn{1}{c}{noninteractive}
+						 & \multicolumn{1}{c}{interactive} \\
+						\cline{2-3}
+						massively multiple & Library & University \\
+						\cline{2-3}
+						one-to-one & Book & Tutor \\
+						\cline{2-3}
+						\end{tabular}
+						```
+
+						الناتج:
+						<div style="background:white; display:inline-block;">
+						<img src="./tabular2.png" alt=""/>
+						</div>
+						</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+					## إنشاء صور
+
+					-----
+
+					نحتاج إلى طريقة لإضافة صور مع تعليقات (سفلية أو علوية) وكذلك القدرة على الإشارة إلى الصورة عن طريق مرجع. ما نحتاجه يُسمى بـfigures، والـ figures عبارة عن بيئة تعطينا المزيد من التحكم في الصور كموقع الصورة وحجمها والتعليقات عليها وصف الصور بعضها بجانب بعض، إلخ.
+
+					-----
+
+					## العوائم
+					العوائم عبارة عن حاويات لأشياء في الوثيقة والتي لا يمكن تقسيمها لأكثر من صفحة.
+					العوائم موجودة لحل مشكلة الأشياء التي لا يمكن حشوها في الصفحة الحالية وهي موجودة لمساعدتك عندما لا تريد أن تجعل هذا الشيء في هذا المكان تحديدًا، وبالمثال يتضح المقال كما سنوضح في الشريحة التالية
+
+					-----
+
+					```latex 
+						\begin{figure}[placement]
+							... content ...
+						\end{figure}
+					```
+
+					حيث placement هو موضع الصورة، وهو أحد هذه الحروف:
+					<table>
+						<thead>
+							<tr>
+								<td>الحرف</td>
+								<td>الموضع</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>h</td>
+								<td>في هذا المكان إن أمكن</td>
+							</tr>
+							<tr>
+								<td>t</td>
+								<td>أعلى الصفحة</td>
+							</tr>
+							<tr>
+								<td>b</td>
+								<td>أسفل الصفحة</td>
+							</tr>
+							<tr>
+								<td>p</td>
+								<td>في صفحة مميزة للعوائم فقط</td>
+							</tr>
+							<tr>
+								<td>i</td>
+								<td>يستخدم قيم افتراضية مختلفة</td>
+							</tr>
+							<tr>
+								<td>H</td>
+								<td>يستخدم حزمة float لإرغام لاتكس على وضع الصورة في هذا المكان تحديدا</td>
+							</tr>
+						</tbody>
+					</table>
+
+
 					</textarea>
 				</section>
 				<section>
-					إنشاء الجداول
+					<section>
+						<h2>الحروف الإغريقية<br /></h2>
+						<br />
+						موضحة في الشريحة أدناه
+					</section>
+					<section>
+						<img src="./greekletters.png" />
+					</section>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## إضافة النصوص للمعادلات
+						البيئة الرياضية تختلف عن بيئة النصوص الافتراضية في تقديم النصوص. هنا أحد الأمثلة التي توضح هذا الاختلاف:
+
+						```latex
+							50 apples \times 100 apples = lots of apples^2
+						```
+
+						الناتج:
+
+						![bruh](./textsdemo.jpg)
+
+						وكما نلاحظ، لا يوجد مسافات.
+
+						-----
+
+						لإضافة مسافات، فأبسط حل هو:
+						```latex 
+						50\text{ apples }\times 100 \text{ apples }=\text{lots of apples}^2
+						```
+
+						<img src="./textdone.jpg" alt="g" style="width:100%; filter: invert(1);" />
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="^-----">
+					<textarea data-template>
+						## تنسيق المعادلات
+						أوامر تنسيق المعادلات الرياضية شبيهة باوامر تنسيق الخط العادية، إلا انها مخصصة للوضع الرياضة وتحتاج إلى الحزمة amsfonts، وأدناه جدول بتلك الأوامر:
+						
+						-----
+
+						<img src="./formattingequations.png" alt="g" style="width:100%; " />
+
+					</textarea>
 				</section>
 				<section>
-					إنشاء صور
+					تلوين المعادلات<br>
+
+					أحس مو لازم
 				</section>
 				<section>
-					الحروف الإغريقية
+					<section>
+						علامة الموجب والسالب
+					</section>
+					<section>
+						<p style="font-size: 28px;"> لاتكس يتعامل مع العلامتين + و - بطريقتين مختلفتين، أكثر الطرق شيوعًا هي التعامل معها على أنها علامة ثنائية. عندما يظهر عنصران رياضيان على أحد اتجاهي العلامة، يفترض نظام لاتكس أنها علامة ثنائية، ولذلك يقوم بتوفير المزيد من المساحة بجانب العلامة. الطريقة الأخرى هي العلامة التعيينية والتي توضح ما إذا كانت الكمية الرياضية موجبة أو سالبة. وفي هذه الحالة، تريد أن  تظهر العلامة بقرب العنصر الرياضي الذي تدل عليه. إذا وضعت العلامتين + أو - بدون أي شيء قبلها ووضعت شيء بعدها ولكنك أردت أن يتم التعامل معها معاملة العلامة الثنائيةفيمكنك إضافة حرف خفي قبلها باستعمال {} (قوساس أعوجان فارغان من المحتوى). هذا مفيد خصوصًا عند كتابة معادلات على أكثر من سطر أو عند إضافة سطر يبدأ بزائد أو ناقص، وهنا يمكنك إصلاح مشاكل المحاذاة الغريبة باستخدام الحروف الخفية المذكورة آنفًا. </p>
+					</section>
 				</section>
 				<section>
-					إضافة النصوص للمعادلات
-				</section>
-				<section>
-					تنسيق المعادلات
-				</section>
-				<section>
-					تلوين المعادلات
-				</section>
-				<section>
-					علامة الموجب والسالب
-				</section>
-				<section>
-					قائم ةالهياكل
+					قائمة الهياكل<br><br>
+					<table>
+						<thead>
+							<tr>
+								<th>الأمر</th>
+								<th>الوظيفة</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									\tableofcontents
+								</td>
+								<td>
+									فهرس المحتويات
+								</td>
+							</tr>
+							<tr>
+								<td>
+									\listoftables
+								</td>
+								<td>
+									فهرس الجداول
+								</td>
+							</tr>
+							<tr>
+								<td>
+									\listoffigures
+								</td>
+								<td>
+									فهرس الصور
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
 				<section>
 					بكيجات تنسيقية إضافية
+					<table class="smallfont">
+						<tbody>
+							<tr>
+								<td>microtypes</td>
+								<td>يسمح للاتكس بحرية تكبير الخط وتصغيره عند الحاجة</td>
+							</tr>
+							<tr>
+								<td>geometry</td>
+								<td>تحجيم الصفحات والهوامش وما إلى ذلك</td>
+							</tr>
+							<tr>
+								<td>xcolor</td>
+								<td>لون النص</td>
+							</tr>
+							<tr>
+								<td>pgf, pgfpages</td>
+								<td>تأطير الصفحات</td>
+							</tr>
+							<tr>
+								<td>amsmath, amssymb, amssymb</td>
+								<td>تنسيق المعادلات</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
 			</div>
 		</div>
